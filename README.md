@@ -31,8 +31,8 @@ WWW=./
 1. Clone this repository
 
    ```bash
-   git clone https://github.com/johnpapa/express-to-functions.git
-   cd express-to-functions
+   git clone https://github.com/MicrosoftDocs/mslearn-module-shifting-nodejs-express-apis-to-serverless learn-functions
+   cd learn-functions
    ```
 
 1. Install the npm packages
