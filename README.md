@@ -1,64 +1,108 @@
----
-page_type: sample
-languages:
-- csharp
-products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
----
+# Shifting Node.js Express to Azure Functions
 
-# Official Microsoft Sample
+TypeScript Node/Express 👉TypeScript Serverless ➕ Angular
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+This project was created to help represent a fundamental app written with Node Express APIs and TypeScript that can be shifted to Serverless Functions with TypeScript.
 
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+The client app is Angular, however it could just as easily be Vue or React. The heroes and villains theme is used throughout the app.
 
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
+by [John Papa](http://twitter.com/john_papa)
 
-Give a short description for your sample here. What does it do and why is it important?
+Comparative client apps written with Vue and React can be found at at [github.com/johnpapa/heroes-vue](https://github.com/johnpapa/heroes-vue) and [github.com/johnpapa/heroes-react](https://github.com/johnpapa/heroes-react)
 
-## Contents
+## Why
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+I love Node and Express for creating APIs! These require a server and paying for that server in the cloud. Shifting to serverless alleviates the cost, the server upkeep, helps scale up and down easily, and reduces the surface area of the middleware required for a robust Express app. Is it perfect? No, of course not! But this is a solid option if these factors affect you.
 
 ## Prerequisites
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+Make a copy of the `env.example` file named `.env`, in the root of the project. It should contain the following code.
 
-## Setup
+`.env`
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+```
+NODE_ENV=development
+PORT=7070
+WWW=./
+```
 
-## Running the sample
+## Getting Started
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+1. Clone this repository
 
-## Key concepts
+   ```bash
+   git clone https://github.com/johnpapa/express-to-functions.git
+   cd express-to-functions
+   ```
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+1. Install the npm packages
 
-## Contributing
+   ```bash
+   npm install
+   ```
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+1. Build the Node Express and the Angular code
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+   ```bash
+   npm run node-ng:build
+   ```
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+1. Run the app
+
+   ```bash
+   npm run node:start
+   ```
+
+## Debug Node Express and Angular
+
+1. Open `proxy.conf.json` and change the port to `7070`
+
+1. Open the VS Code Command Palette `F1`
+
+1. Type `View: Show Debug` and press `ENTER`
+
+1. Select `Debug Express and Angular`
+
+1. Press `F5`
+
+1. Open the browser to <http://localhost:7070>
+
+You may now set break points in the Express and Angular code.
+
+## Debug Functions and Angular
+
+1. Open `proxy.conf.json` and change the port to `7071`
+
+1. Open the VS Code Command Palette `F1`
+
+1. Type `View: Show Debug` and press `ENTER`
+
+1. Select `Debug Functions and Angular`
+
+1. Press `F5`
+
+1. Open the browser to <http://localhost:7071>
+
+You may now set break points in the Functions and Angular code.
+
+## Problems or Suggestions
+
+[Open an issue here](/issues)
+
+## Resources
+
+- [Azure Free Trial](https://azure.microsoft.com/en-us/free/?wt.mc_id=expresstofunctions-github-jopapa)
+- [VS Code](https://code.visualstudio.com?wt.mc_id=expresstofunctions-github-jopapa)
+- [VS Code Extension for Node on Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&WT.mc_id=expresstofunctions-github-jopapa)
+- [VS Code Extension Marketplace](https://marketplace.visualstudio.com/vscode?wt.mc_id=expresstofunctions-github-jopapa)
+- [VS Code - macOS keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf?WT.mc_id=expresstofunctions-github-jopapa)
+- [VS Code - Windows keys](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf?WT.mc_id=expresstofunctions-github-jopapa)
+- Azure Functions [local.settings.json](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local#local-settings-file?WT.mc_id=expresstofunctions-github-jopapa) file
+- Tutorial to [Deploy to Azure Using Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started?WT.mc_id=expresstofunctions-github-jopapa)
+
+### Debugging Resources
+
+- [Debugging Angular in VS Code](https://code.visualstudio.com/docs/nodejs/angular-tutorial?wt.mc_id=expresstofunctions-github-jopapa)
+- [Debugging React in VS Code](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial?wt.mc_id=expresstofunctions-github-jopapa)
+- [Debugging Vue in VS Code](https://code.visualstudio.com/docs/nodejs/vuejs-tutorial?wt.mc_id=expresstofunctions-github-jopapa)
+- [Tasks in VS Code](https://code.visualstudio.com/Docs/editor/tasks?wt.mc_id=expresstofunctions-github-jopapa)
