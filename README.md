@@ -53,7 +53,9 @@ WWW=./
 
 ## Debug Node Express and Angular
 
-1. Open `proxy.conf.json` and change the port to `7070`
+1. Stop any debugging sessions that may be currently running
+
+1. Open `proxy.conf.json` and set the port to `7070`
 
 1. Open the VS Code Command Palette `F1`
 
@@ -68,6 +70,8 @@ WWW=./
 You may now set break points in the Express and Angular code.
 
 ## Debug Functions and Angular
+
+1. Stop any debugging sessions that may be currently running
 
 1. Open `proxy.conf.json` and change the port to `7071`
 
