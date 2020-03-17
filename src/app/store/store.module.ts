@@ -14,6 +14,8 @@ import { entityConfig } from './entity-metadata';
     environment.production ? [] : StoreDevtoolsModule.instrument(),
     EntityDataModule.forRoot(entityConfig)
   ],
-  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }]
+  providers: [
+    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
+  ]
 })
 export class AppStoreModule {}

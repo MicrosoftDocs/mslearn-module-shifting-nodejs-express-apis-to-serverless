@@ -1,5 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { Hero } from '../core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -11,29 +10,29 @@ import { Hero } from '../core';
           <p class="modal-card-title">Confirm</p>
         </header>
         <section class="modal-card-body">
-          {{message}}
+          {{ message }}
         </section>
         <footer class="modal-card-foot">
           <button class="button modal-no" (click)="onNo()">No</button>
-          <button class="button is-primary modal-yes" (click)="onYes()">Yes</button>
+          <button class="button is-primary modal-yes" (click)="onYes()">
+            Yes
+          </button>
         </footer>
       </div>
     </div>
   `
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
   @Input() message;
   @Input() isOpen = false;
   @Output() handleYes = new EventEmitter();
   @Output() handleNo = new EventEmitter();
 
-  ngOnInit() {}
-
   onNo = () => {
     this.handleNo.emit();
-  }
+  };
 
   onYes = () => {
     this.handleYes.emit();
-  }
+  };
 }

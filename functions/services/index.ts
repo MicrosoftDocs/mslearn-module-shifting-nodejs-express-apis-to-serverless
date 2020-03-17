@@ -1,4 +1,3 @@
-import heroService from './hero.service';
-import villainService from './villain.service';
+import vacationService from './vacation.service';
 
-export { heroService, villainService };
+export { vacationService };
