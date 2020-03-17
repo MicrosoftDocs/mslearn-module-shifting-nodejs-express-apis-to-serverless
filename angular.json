@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tourofheroes": {
+    "vacationwishlist": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/tourofheroes",
+            "outputPath": "dist/vacationwishlist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tourofheroes:build"
+            "browserTarget": "vacationwishlist:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tourofheroes:build:production"
+              "browserTarget": "vacationwishlist:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tourofheroes:build"
+            "browserTarget": "vacationwishlist:build"
           }
         },
         "test": {
@@ -105,5 +105,5 @@
       }
     }
   },
-  "defaultProject": "tourofheroes"
+  "defaultProject": "vacationwishlist"
 }

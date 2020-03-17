@@ -1,17 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-header',
   template: `
     <div class="content-title-group">
       <a router-link="/">
-        <h2 class="title">{{title}}</h2>
+        <h2 class="title">{{ title }}</h2>
       </a>
-      <button
-        class="button add-button"
-        (click)="handleAdd()"
-        aria-label="add"
-      >
+      <button class="button add-button" (click)="handleAdd()" aria-label="add">
         <i class="fas fa-plus" aria-hidden="true"></i>
       </button>
       <button
@@ -24,12 +20,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     </div>
   `
 })
-export class ListHeaderComponent implements OnInit {
+export class ListHeaderComponent {
   @Input() title: string;
   @Output() add = new EventEmitter();
   @Output() refresh = new EventEmitter();
-
-  ngOnInit() {}
 
   handleAdd() {
     this.add.emit();

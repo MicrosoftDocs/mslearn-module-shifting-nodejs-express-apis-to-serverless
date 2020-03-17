@@ -1,116 +1,53 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const data = {
-    heroes: [
+    vacations: [
         {
             id: '10',
-            name: 'Ella',
-            description: 'fashionista'
+            name: 'Florida beach getaway',
+            description: 'Soft beach sands, warm sunsets, calm waters'
         },
         {
             id: '20',
-            name: 'Madelyn',
-            description: 'the cat whisperer'
+            name: 'Glacier excursions',
+            description: 'Vistas of the centuries old glaciers'
         },
         {
             id: '30',
-            name: 'Haley',
-            description: 'pen wielder'
+            name: 'Iceland',
+            description: 'Explore the dramatic landscape with volcanoes, geysers, hot springs and lava fields'
         },
         {
             id: '40',
-            name: 'Landon',
-            description: 'arc trooper'
-        }
-    ],
-    villains: [
-        {
-            id: '10',
-            name: 'Malcolm',
-            description: `I don't believe there is a power in the verse that can stop Kaylee from being cheerful.`
-        },
-        {
-            id: '20',
-            name: 'Kaylee',
-            description: `No power in the 'verse can stop me.`
-        },
-        {
-            id: '30',
-            name: 'Hoban',
-            description: `I don't mean to alarm anybody, but I think we're being followed.`
-        },
-        {
-            id: '40',
-            name: 'Zoë',
-            description: `First rule of battle, little one ... don't ever let them know where you are.`
+            name: 'Norway',
+            description: 'Visit breathtaking fjords and waterfalls'
         },
         {
             id: '50',
-            name: 'Inara',
-            description: `It wasn't entirely a disaster`
-        },
-        {
-            id: '60',
-            name: 'Simon',
-            description: 'This must be what going mad feels like.'
-        },
-        {
-            id: '70',
-            name: 'Shepherd',
-            description: 'Oh, I got heathens aplenty right here.'
-        },
-        {
-            id: '80',
-            name: 'River',
-            description: 'Call me if anyone interesting shows up'
-        },
-        {
-            id: '90',
-            name: 'Jayne',
-            description: `Ten percent of nothin' is ... let me do the math here ... nothin' into nothin' ... carry the nothin'`
+            name: 'Rocky mountain vacation',
+            description: 'Long and relaxing hikes through the mountains'
         }
     ]
 };
-const addHero = hero => {
-    hero.id = `Hero${hero.name}`;
-    data.heroes.push(hero);
-    return hero;
+const addVacation = vacation => {
+    vacation.id = `vacation-${vacation.name}`;
+    data.vacations.push(vacation);
+    return vacation;
 };
-exports.addHero = addHero;
-const updateHero = hero => {
-    const index = data.heroes.findIndex(h => h.id === hero.id);
-    data.heroes.splice(index, 1, hero);
-    return hero;
+exports.addVacation = addVacation;
+const updateVacation = vacation => {
+    const index = data.vacations.findIndex(v => v.id === vacation.id);
+    data.vacations.splice(index, 1, vacation);
+    return vacation;
 };
-exports.updateHero = updateHero;
-const deleteHero = id => {
-    data.heroes = data.heroes.filter(h => h.id !== id);
+exports.updateVacation = updateVacation;
+const deleteVacation = id => {
+    data.vacations = data.vacations.filter(v => v.id !== id);
     return true;
 };
-exports.deleteHero = deleteHero;
-const getHeroes = () => {
-    return data.heroes;
+exports.deleteVacation = deleteVacation;
+const getVacations = () => {
+    return data.vacations;
 };
-exports.getHeroes = getHeroes;
-const addVillain = villain => {
-    villain.id = `Villain${villain.name}`;
-    return data.villains.push(villain);
-    return villain;
-};
-exports.addVillain = addVillain;
-const updateVillain = villain => {
-    const index = data.villains.findIndex(h => h.id === villain.id);
-    data.villains.splice(index, 1, villain);
-    return villain;
-};
-exports.updateVillain = updateVillain;
-const deleteVillain = id => {
-    data.villains = data.villains.filter(h => h.id !== id);
-    return true;
-};
-exports.deleteVillain = deleteVillain;
-const getVillains = () => {
-    return data.villains;
-};
-exports.getVillains = getVillains;
+exports.getVacations = getVacations;
 //# sourceMappingURL=data.js.map

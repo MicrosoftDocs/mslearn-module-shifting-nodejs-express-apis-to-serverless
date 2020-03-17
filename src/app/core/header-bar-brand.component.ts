@@ -13,8 +13,9 @@ import { Component } from '@angular/core';
         <i class="fab js-logo fa-angular fa-2x" aria-hidden="true"></i>
       </a>
       <a class="navbar-item nav-home" router-link="/">
-        <span class="tour">TOUR</span> <span class="of">OF</span>
-        <span class="heroes">HEROES</span>
+        <span class="brand-first">VACATION</span>
+        <span class="brand-second">WISH</span>
+        <span class="brand-third">LIST</span>
       </a>
       <button
         class="link navbar-burger burger"

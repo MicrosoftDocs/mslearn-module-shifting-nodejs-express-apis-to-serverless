@@ -4,11 +4,9 @@ TypeScript Node/Express 👉TypeScript Serverless ➕ Angular
 
 This project was created to help represent a fundamental app written with Node Express APIs and TypeScript that can be shifted to Serverless Functions with TypeScript.
 
-The client app is Angular, however it could just as easily be Vue or React. The heroes and villains theme is used throughout the app.
+The client app is Angular, however it could just as easily be Vue or React. The vacations theme is used throughout the app.
 
 by [John Papa](http://twitter.com/john_papa)
-
-Comparative client apps written with Vue and React can be found at at [github.com/johnpapa/heroes-vue](https://github.com/johnpapa/heroes-vue) and [github.com/johnpapa/heroes-react](https://github.com/johnpapa/heroes-react)
 
 ## Why
 

@@ -2,10 +2,8 @@ import express from 'express';
 
 const router = express.Router();
 
-import { heroRoutes } from './hero.routes';
-import { villainRoutes } from './villain.routes';
+import { vacationRoutes } from './vacation.routes';
 
-router.use('/', heroRoutes);
-router.use('/', villainRoutes);
+router.use('/', vacationRoutes);
 
 export { router };
