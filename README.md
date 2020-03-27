@@ -42,7 +42,7 @@ WWW=./
 1. Build the Node Express and the Angular code
 
    ```bash
-   npm run node-ng:build
+   npm run full:build
    ```
 
 1. Run the app
