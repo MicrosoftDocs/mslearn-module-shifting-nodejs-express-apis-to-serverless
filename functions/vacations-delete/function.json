@@ -7,7 +7,7 @@
       "direction": "in",
       "name": "req",
       "methods": ["delete"],
-      "route": "vacations"
+      "route": "vacations/{id}"
     },
     {
       "type": "http",
