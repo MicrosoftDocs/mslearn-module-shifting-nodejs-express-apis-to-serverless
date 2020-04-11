@@ -65,7 +65,7 @@ WWW=./
 
 1. Press `F5`
 
-1. Open the browser to <http://localhost:7070>
+1. Open the browser to <http://localhost:4200>
 
 You may now set break points in the Express and Angular code.
 
