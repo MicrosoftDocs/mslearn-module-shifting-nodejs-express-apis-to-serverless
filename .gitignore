@@ -350,4 +350,4 @@ MigrationBackup/
 .ionide/
 
 # angular files
-**/dist/
+dist/
