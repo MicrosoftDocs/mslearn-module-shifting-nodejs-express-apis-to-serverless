@@ -29,7 +29,7 @@ by [John Papa](http://twitter.com/john_papa)
 - ✅ **[Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=javascript-120166-gllemos)**
    - ✅ **[Visual Studio Code Extension Marketplace](https://marketplace.visualstudio.com/vscode)**
 - ✅ **[Node.js](https://nodejs.org/)**
-   - ✅ **[VS Code Extension for Node on Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&WT.mc_id=javascript-120166-gllemos)**
+   - ✅ **[Visual Studio Code Extension for Node on Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack&WT.mc_id=javascript-120166-gllemos)**
 - ✅ **[TypeScript](https://www.typescriptlang.org/)**
 - ✅ **[Angular](https://angular.io/)**
 - ✅ **[Express.js](https://expressjs.com/)**
