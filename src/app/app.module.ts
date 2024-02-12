@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { EntityDataModule } from '@ngrx/data';
-
 import { AppComponent } from './app.component';
 import { AppStoreModule } from './store/store.module';
 import { AboutComponent } from './about.component';
