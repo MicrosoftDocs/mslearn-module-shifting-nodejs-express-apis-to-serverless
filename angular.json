@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vacationwishlist:build"
+            "buildTarget": "vacationwishlist:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vacationwishlist:build:production"
+              "buildTarget": "vacationwishlist:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vacationwishlist:build"
+            "buildTarget": "vacationwishlist:build"
           }
         },
         "test": {
@@ -108,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "0747bf61-7a45-4bca-a155-6b9a63580dde"
   }
 }
