@@ -15,7 +15,7 @@ import { routes } from './router';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(routes, {}),
     AppStoreModule,
     EntityDataModule
   ],
