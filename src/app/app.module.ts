@@ -9,6 +9,7 @@ import { AppStoreModule } from './store/store.module';
 import { AboutComponent } from './about.component';
 import { declarables } from './core';
 import { routes } from './router';
+import { VacationService } from './vacations/vacation.service';
 
 @NgModule({
   declarations: [AppComponent, AboutComponent, declarables],
@@ -19,7 +20,7 @@ import { routes } from './router';
     AppStoreModule,
     EntityDataModule
   ],
-  providers: [],
+  providers: [VacationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
