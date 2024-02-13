@@ -17,7 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "aot": true,
             "outputPath": "dist/vacationwishlist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,7 +32,13 @@
               "node_modules/font-awesome/css/font-awesome.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -46,9 +51,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -64,23 +67,24 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vacationwishlist:build"
+            "buildTarget": "vacationwishlist:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vacationwishlist:build:production"
+              "buildTarget": "vacationwishlist:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vacationwishlist:build"
+            "buildTarget": "vacationwishlist:build"
           }
         },
         "test": {
@@ -105,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "vacationwishlist"
+  "cli": {
+    "analytics": "0747bf61-7a45-4bca-a155-6b9a63580dde"
+  }
 }
