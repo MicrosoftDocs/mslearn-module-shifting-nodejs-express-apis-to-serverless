@@ -1,4 +1,11 @@
+interface Vacation {
+  id: string;
+  name: string;
+  description: string;
+}
+
 const data = {
+
   vacations: [
     {
       id: '10',
@@ -29,25 +36,54 @@ const data = {
   ]
 };
 
-const addVacation = vacation => {
-  vacation.id = `vacation-${vacation.name}`;
-  data.vacations.push(vacation);
-  return vacation;
+const addVacation = (vacation: Vacation): Vacation => {
+  try {
+    vacation.id = `vacation-${vacation.name}`;
+    data.vacations.push(vacation);
+
+    return vacation;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error adding vacation', err);
+  }
 };
 
-const updateVacation = vacation => {
-  const index = data.vacations.findIndex(v => v.id === vacation.id);
-  data.vacations.splice(index, 1, vacation);
-  return vacation;
+const updateVacation = (updatedVacation: Vacation): Vacation | undefined => {
+  try {
+    const index = data.vacations.findIndex(v => v.id === updatedVacation.id);
+
+    if (index === -1) {
+      data.vacations.splice(index, 1, updatedVacation);
+
+      return updatedVacation;
+    }
+
+    return undefined;
+  } catch (error) {
+    const err = error as Error;
+    console.log('Error updating vacation', err);
+  }
 };
 
-const deleteVacation = id => {
-  data.vacations = data.vacations.filter(v => v.id !== id);
-  return true;
+const deleteVacation = (id: string): boolean => {
+  try {
+    const initialLength = data.vacations.length;
+    data.vacations = data.vacations.filter(v => v.id !== id);
+
+    return data.vacations.length !== initialLength;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error deleting vacation', err);
+  }
 };
 
-const getVacations = () => {
-  return data.vacations;
+const getVacations = (): Vacation[] => {
+  try {
+    return data.vacations;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error deleting vacation', err);
+  }
 };
 
-export { addVacation, updateVacation, deleteVacation, getVacations };
+export { addVacation, updateVacation, deleteVacation, getVacations, Vacation };
