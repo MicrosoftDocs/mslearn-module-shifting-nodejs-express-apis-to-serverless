@@ -49,12 +49,12 @@ const addVacation = (vacation: Vacation): Vacation => {
 };
 
 const updateVacation = (updatedVacation: Vacation): Vacation | undefined => {
+
   try {
     const index = data.vacations.findIndex(v => v.id === updatedVacation.id);
 
-    if (index === -1) {
+    if (index !== -1) {
       data.vacations.splice(index, 1, updatedVacation);
-
       return updatedVacation;
     }
 
