@@ -18,7 +18,6 @@
         "run-script",
         "node:debug"
       ],
-      "port": 9229
     },
     {
       "name": "Attach to Functions",

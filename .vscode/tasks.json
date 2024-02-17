@@ -34,34 +34,6 @@
       }
     },
     {
-      "type": "shell",
-      "label": "npm build",
-      "command": "npm run build",
-      "dependsOn": "npm install",
-      "problemMatcher": "$tsc",
-      "options": {
-        "cwd": "${workspaceFolder}/functions"
-      }
-    },
-    {
-      "type": "shell",
-      "label": "npm install",
-      "command": "npm install",
-      "options": {
-        "cwd": "${workspaceFolder}/functions"
-      }
-    },
-    {
-      "type": "shell",
-      "label": "npm prune",
-      "command": "npm prune --production",
-      "dependsOn": "npm build",
-      "problemMatcher": [],
-      "options": {
-        "cwd": "${workspaceFolder}/functions"
-      }
-    },
-    {
       "type": "func",
       "label": "func: host start",
       "command": "host start",
