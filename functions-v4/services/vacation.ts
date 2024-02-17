@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as data from './data';
+import * as data from './vacation.services';
 
 async function getVacations(req: Request, res: Response): Promise<void> {
   try {
