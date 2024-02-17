@@ -1,5 +1,5 @@
 
-import vacationsData from '../data/vacations.json';
+import vacationsData from '../../data/vacations.json';
 
 interface Vacation {
   id: string;

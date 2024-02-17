@@ -1,16 +1,34 @@
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+import { HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+import * as data from '../services/vacation.services';
 
 export async function getVacations(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
 
-    const name = request.query.get('name') || await request.text() || 'world';
+    try {
+        const vacations = data.getVacations();
 
-    return { body: `Hello, ${name}!` };
+        if (vacations) {
+            return {
+                status: 200,
+                jsonBody: vacations
+            };
+        } else {
+            return {
+                status: 404,
+                jsonBody: {
+                    error: 'No vacations found'
+                }
+            };
+        }      
+    } catch (error: unknown) {
+        const err = error as Error;
+        context.error(`Error listing vacations: ${err.message}`);
+
+        return {
+            status: 500,
+            jsonBody: {
+                error: 'Failed to list vacations'
+            }
+        };
+    }
 };
-
-app.http('getVacations', {
-    methods: ['GET', 'POST'],
-    route: 'vacations',
-    authLevel: 'anonymous',
-    handler: getVacations
-});
