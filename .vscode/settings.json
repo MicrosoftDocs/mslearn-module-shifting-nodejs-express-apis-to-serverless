@@ -5,5 +5,6 @@
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "npm prune (functions)",
   "azureFunctions.postDeployTask": "npm install (functions)",
-  "azureFunctions.projectLanguageModel": 4
+  "azureFunctions.projectLanguageModel": 4,
+  "azureFunctions.projectSubpath": "functions-v4"
 }
