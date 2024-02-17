@@ -81,6 +81,31 @@ WWW=./
    npm run node:start
    ```
 
+## 🔥 Install or update Core Tools
+ 
+To run the project, you will need to install the Azure Functions Core Tools. To do this, follow these steps:
+ 
+1. Open Visual Studio Code or Codespaces
+2. Select `F1` to open the command palette
+3. Then search for and run the command **Azure Functions: Install or Update Core Tools**.
+4. Choose the option **Azure Functions v4**.
+ 
+To ensure the installation was successful, you can run the following command in the terminal:
+ 
+```bash
+func --version
+```
+ 
+To ensure the installation was successful, you can run the following command in the terminal:
+ 
+```bash
+func --version
+```
+ 
+If the installation was successful, you will see the installed version of the Core Tools.
+ 
+> **note:** This command starts a package-based installation of the latest version of Core Tools. It also updates the version of Core Tools if you already have it installed.
+
 ## 🐞 Debug Node.js, Express.js and Angular
 
 1. Stop any debugging sessions that may be currently running

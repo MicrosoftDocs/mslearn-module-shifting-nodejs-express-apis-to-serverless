@@ -17,7 +17,10 @@
         "owner": "typescript",
         "source": "ts",
         "applyTo": "closedDocuments",
-        "fileLocation": ["relative", "${cwd}"],
+        "fileLocation": [
+          "relative",
+          "${cwd}"
+        ],
         "pattern": "$tsc",
         "background": {
           "activeOnStart": true,
@@ -28,16 +31,6 @@
             "regexp": "Compiled |Failed to compile."
           }
         }
-      }
-    },
-    {
-      "type": "func",
-      "command": "host start",
-      "problemMatcher": "$func-watch",
-      "isBackground": true,
-      "dependsOn": "npm build",
-      "options": {
-        "cwd": "${workspaceFolder}/functions"
       }
     },
     {
@@ -66,6 +59,54 @@
       "problemMatcher": [],
       "options": {
         "cwd": "${workspaceFolder}/functions"
+      }
+    },
+    {
+      "type": "func",
+      "label": "func: host start",
+      "command": "host start",
+      "problemMatcher": "$func-node-watch",
+      "isBackground": true,
+      "dependsOn": "npm build (functions)",
+      "options": {
+        "cwd": "${workspaceFolder}/functions-v4"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm build (functions)",
+      "command": "npm run build",
+      "dependsOn": "npm clean (functions)",
+      "problemMatcher": "$tsc",
+      "options": {
+        "cwd": "${workspaceFolder}/functions-v4"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm install (functions)",
+      "command": "npm install",
+      "options": {
+        "cwd": "${workspaceFolder}/functions-v4"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm prune (functions)",
+      "command": "npm prune --production",
+      "dependsOn": "npm build (functions)",
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/functions-v4"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm clean (functions)",
+      "command": "npm run clean",
+      "dependsOn": "npm install (functions)",
+      "options": {
+        "cwd": "${workspaceFolder}/functions-v4"
       }
     }
   ]
