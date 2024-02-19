@@ -10,7 +10,7 @@ const readVacationsFromFile = (): Vacation[] => {
 const addVacation = (vacation: Vacation): Vacation | undefined=> {
   try {
     const vacations = readVacationsFromFile();
-    vacation.id = `vacation-${vacation.name}`;
+    vacation.id = `vacation-${Date.now()}`;
     vacations.push(vacation);
 
     return vacation;

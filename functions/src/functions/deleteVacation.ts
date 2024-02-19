@@ -7,6 +7,15 @@ export async function deleteVacation(request: HttpRequest, context: InvocationCo
   try {
     
     const id = request.params.id;
+
+    if (!id) {
+      return {
+        status: 400,
+        jsonBody: {
+          error: 'ID parameter is required'
+        }
+      };
+    }
     
     const deletedVacation = vacationService.deleteVacation(id);
     
