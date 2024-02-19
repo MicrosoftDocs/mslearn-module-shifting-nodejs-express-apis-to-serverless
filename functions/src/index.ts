@@ -11,21 +11,21 @@ app.http('get-vacations', {
     handler: getVacations
 });
 
-app.http('postVacation', {
+app.http('post-vacation', {
     methods: ['POST'],
     route: 'vacations',
     authLevel: 'anonymous',
     handler: postVacation
 });
 
-app.http('updateVacation', {
+app.http('update-vacation', {
     methods: ['PUT'],
     route: 'vacations/{id}',
     authLevel: 'anonymous',
     handler: updateVacation
 });
 
-app.http('deleteVacation', {
+app.http('delete-vacation', {
     methods: ['DELETE'],
     route: 'vacations/{id}',
     authLevel: 'anonymous',
