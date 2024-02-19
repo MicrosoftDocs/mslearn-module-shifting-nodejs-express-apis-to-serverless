@@ -1,30 +1,43 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express, { Application, Request, Response } from 'express';
 import { router } from './routes';
 
-const captains = console;
+const logger = console;
 
-function start() {
+function startServer() {
+  
+  // Check for required environment variables
   if (!process.env.NODE_ENV || !process.env.PORT) {
-    captains.error('ENV variables are missing.', 'Verify that you have set them directly or in a .env file.');
+    logger.error('ENV variables are missing. Verify that you have set them directly or in a .env file.');
     process.exit(1);
   } else {
-    captains.log('Using ENV variables');
+    logger.log('Using ENV variables');
   }
 
-  const app = express();
-  const port = process.env.PORT || 7070;
-  const www = process.env.WWW || './';
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  // Initialize Express application
+  const app: Application = express();
 
+  // Configuration
+  const port: number = parseInt(process.env.PORT || '7070', 10);
+  const www:string = process.env.WWW || './';
+
+  // Middleware
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
   app.use(express.static(www));
-  captains.log(`serving ${www}`);
+
+  // Logging `serving` directory
+  logger.log(`Serving ${www}`);
+
+  // Routes
   app.use('/api', router);
-  app.get('*', (req, res) => {
+
+  // Default route
+  app.get('*', (_req: Request, res: Response) => {
     res.sendFile('index.html', { root: www });
   });
-  app.listen(port, () => captains.log(`listening on http://localhost:${port}`));
+
+  // Start server
+  app.listen(port, () => logger.log(`listening on http://localhost:${port}`));
 }
 
-export { start };
+export { startServer };

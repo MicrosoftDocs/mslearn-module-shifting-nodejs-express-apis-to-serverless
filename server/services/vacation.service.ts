@@ -1,54 +1,77 @@
-import { Request, Response } from 'express';
-import * as data from './data';
+import vacationsData from '../data/vacations.json';
 
-async function getVacations(req: Request, res: Response) {
-  try {
-    const vacations = data.getVacations();
-    res.status(200).json(vacations);
-  } catch (error) {
-    res.status(500).send(error);
-  }
+interface Vacation {
+  id: string;
+  name: string;
+  description: string;
 }
 
-async function postVacation(req: Request, res: Response) {
-  const vacation = {
-    id: undefined,
-    name: req.body.name,
-    description: req.body.description
-  };
+// Function to read vacation data from the vacations.json file
+const readVacationsFromFile = (): Vacation[] => {
+  return vacationsData;
+};
+
+const addVacation = (vacation: Vacation): Vacation | undefined=> {
+  try {
+    const vacations = readVacationsFromFile();
+    vacation.id = `vacation-${Date.now()}`;
+    vacations.push(vacation);
+
+    return vacation;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error adding vacation', err);
+
+    return undefined;
+  }
+};
+
+const updateVacation = (updatedVacation: Vacation): Vacation | undefined => {
 
   try {
-    const newVacation = data.addVacation(vacation);
-    res.status(201).json(newVacation);
+    const vacations = readVacationsFromFile();
+    const index = vacations.findIndex(v => v.id === updatedVacation.id);
+
+    if (index !== -1) {
+      vacations.splice(index, 1, updatedVacation);
+      return updatedVacation;
+    }
+
+    return undefined;
   } catch (error) {
-    res.status(500).send(error);
+    const err = error as Error;
+    console.log('Error updating vacation', err);
+
+    return undefined;
   }
-}
+};
 
-async function putVacation(req: Request, res: Response) {
-  const vacation = {
-    id: req.params.id,
-    name: req.body.name,
-    description: req.body.description
-  };
-
+const deleteVacation = (id: string): boolean => {
   try {
-    const updatedVacation = data.updateVacation(vacation);
-    res.status(200).json(updatedVacation);
-  } catch (error) {
-    res.status(500).send(error);
+    let vacations = readVacationsFromFile();
+    const initialLength = vacations.length;
+    vacations = vacations.filter(v => v.id !== id);
+
+    return vacations.length !== initialLength;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error deleting vacation', err);
   }
-}
+};
 
-async function deleteVacation(req: Request, res: Response) {
-  const { id } = req.params;
-
+const getVacations = (): Vacation[] => {
   try {
-    data.deleteVacation(id);
-    res.status(200).json({});
+    return readVacationsFromFile();
   } catch (error) {
-    res.status(500).send(error);
+    console.error('Error getting vacations:', error);
+    return [];
   }
-}
+};
 
-export default { getVacations, postVacation, putVacation, deleteVacation };
+export { 
+  readVacationsFromFile,
+  addVacation, 
+  updateVacation, 
+  deleteVacation, 
+  getVacations 
+};
