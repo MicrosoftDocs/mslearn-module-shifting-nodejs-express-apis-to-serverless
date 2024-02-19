@@ -41,7 +41,7 @@
       "isBackground": true,
       "dependsOn": "npm build (functions)",
       "options": {
-        "cwd": "${workspaceFolder}/functions-v4"
+        "cwd": "${workspaceFolder}/functions"
       }
     },
     {
@@ -51,7 +51,7 @@
       "dependsOn": "npm clean (functions)",
       "problemMatcher": "$tsc",
       "options": {
-        "cwd": "${workspaceFolder}/functions-v4"
+        "cwd": "${workspaceFolder}/functions"
       }
     },
     {
@@ -59,7 +59,7 @@
       "label": "npm install (functions)",
       "command": "npm install",
       "options": {
-        "cwd": "${workspaceFolder}/functions-v4"
+        "cwd": "${workspaceFolder}/functions"
       }
     },
     {
@@ -69,7 +69,7 @@
       "dependsOn": "npm build (functions)",
       "problemMatcher": [],
       "options": {
-        "cwd": "${workspaceFolder}/functions-v4"
+        "cwd": "${workspaceFolder}/functions"
       }
     },
     {
@@ -78,7 +78,7 @@
       "command": "npm run clean",
       "dependsOn": "npm install (functions)",
       "options": {
-        "cwd": "${workspaceFolder}/functions-v4"
+        "cwd": "${workspaceFolder}/functions"
       }
     }
   ]

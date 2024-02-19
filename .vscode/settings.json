@@ -1,10 +1,10 @@
 {
-  "azureFunctions.deploySubpath": "functions-v4",
+  "azureFunctions.deploySubpath": "functions",
   "azureFunctions.projectLanguage": "TypeScript",
   "azureFunctions.projectRuntime": "~4",
   "debug.internalConsoleOptions": "neverOpen",
   "azureFunctions.preDeployTask": "npm prune (functions)",
   "azureFunctions.postDeployTask": "npm install (functions)",
   "azureFunctions.projectLanguageModel": 4,
-  "azureFunctions.projectSubpath": "functions-v4"
+  "azureFunctions.projectSubpath": "functions"
 }
