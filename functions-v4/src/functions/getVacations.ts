@@ -1,11 +1,11 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
-import * as data from '../services/vacation.services';
+import * as vacationService from '../services/vacation.services';
 
 export async function getVacations(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`Http function processed request for url "${request.url}"`);
 
     try {
-        const vacations = data.getVacations();
+        const vacations = vacationService.getVacations();
 
         if (vacations) {
             return {
