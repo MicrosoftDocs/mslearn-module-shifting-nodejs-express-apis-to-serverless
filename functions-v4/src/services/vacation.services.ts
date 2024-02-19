@@ -69,6 +69,5 @@ export {
   addVacation, 
   updateVacation, 
   deleteVacation, 
-  getVacations, 
-  Vacation 
+  getVacations,  
 };
