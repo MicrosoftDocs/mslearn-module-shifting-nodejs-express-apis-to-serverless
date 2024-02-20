@@ -49,3 +49,7 @@ content/example-playground
 # System files
 .DS_Store
 Thumbs.db
+
+# Azurite
+__/
+.azurite/
