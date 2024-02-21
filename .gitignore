@@ -50,5 +50,10 @@ content/example-playground
 .DS_Store
 Thumbs.db
 
+# Azurite
+__/
+.azurite/
+
+# Azure Functions
 local.settings.json
 .env*
