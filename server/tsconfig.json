@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "baseUrl": ".",
+    "sourceMap": true,
     "paths": {
       "*": ["node_modules/*", "src/types/*"]
     }

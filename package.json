@@ -7,6 +7,7 @@
     "build": "ng build --configuration production --source-map=true",
     "test": "ng test",
     "lint": "ng lint",
+    "start:azurite": "npx -y azurite --location ./.azurite/data --debug ./.azurite/logs",    
     "node:build-ts": "tsc -p server",
     "node:watch-ts": "tsc -w -p server",
     "node:lint": "npm run node:build-ts && eslint \"server/**/*.ts\" --quiet --fix",
