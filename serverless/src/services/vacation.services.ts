@@ -48,7 +48,7 @@ const deleteVacation = (id: string): boolean => {
     const initialLength = vacations.length;
     vacations = vacations.filter(v => v.id !== id);
 
-    return vacations.length !== initialLength;
+    return vacations.length !== initialLength - 1;
   } catch (error: unknown) {
     const err = error as Error;
     console.log('Error deleting vacation', err);

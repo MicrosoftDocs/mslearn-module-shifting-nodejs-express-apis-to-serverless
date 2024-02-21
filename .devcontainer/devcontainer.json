@@ -24,7 +24,8 @@
 				"esbenp.prettier-vscode",
 				"dbaeumer.vscode-eslint",
 				"jasonnutter.search-node-modules",
-				"xabikos.JavaScriptSnippets"
+				"xabikos.JavaScriptSnippets",
+				"Azurite.azurite"
 			]
 		}
 	},

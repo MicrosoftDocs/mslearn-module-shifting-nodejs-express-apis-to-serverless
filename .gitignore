@@ -49,3 +49,6 @@ content/example-playground
 # System files
 .DS_Store
 Thumbs.db
+
+local.settings.json
+.env*

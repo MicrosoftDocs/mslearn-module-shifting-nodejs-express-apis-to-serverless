@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration production --source-map=true",
     "test": "ng test",
     "lint": "ng lint",
     "node:build-ts": "tsc -p server",
