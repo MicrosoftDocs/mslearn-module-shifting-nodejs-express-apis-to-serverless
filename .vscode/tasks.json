@@ -17,7 +17,10 @@
         "owner": "typescript",
         "source": "ts",
         "applyTo": "closedDocuments",
-        "fileLocation": ["relative", "${cwd}"],
+        "fileLocation": [
+          "relative",
+          "${cwd}"
+        ],
         "pattern": "$tsc",
         "background": {
           "activeOnStart": true,
@@ -32,19 +35,20 @@
     },
     {
       "type": "func",
+      "label": "func: host start",
       "command": "host start",
-      "problemMatcher": "$func-watch",
+      "problemMatcher": "$func-node-watch",
       "isBackground": true,
-      "dependsOn": "npm build",
+      "dependsOn": "npm build (functions)",
       "options": {
         "cwd": "${workspaceFolder}/functions"
       }
     },
     {
       "type": "shell",
-      "label": "npm build",
+      "label": "npm build (functions)",
       "command": "npm run build",
-      "dependsOn": "npm install",
+      "dependsOn": "npm clean (functions)",
       "problemMatcher": "$tsc",
       "options": {
         "cwd": "${workspaceFolder}/functions"
@@ -52,7 +56,7 @@
     },
     {
       "type": "shell",
-      "label": "npm install",
+      "label": "npm install (functions)",
       "command": "npm install",
       "options": {
         "cwd": "${workspaceFolder}/functions"
@@ -60,10 +64,19 @@
     },
     {
       "type": "shell",
-      "label": "npm prune",
+      "label": "npm prune (functions)",
       "command": "npm prune --production",
-      "dependsOn": "npm build",
+      "dependsOn": "npm build (functions)",
       "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}/functions"
+      }
+    },
+    {
+      "type": "shell",
+      "label": "npm clean (functions)",
+      "command": "npm run clean",
+      "dependsOn": "npm install (functions)",
       "options": {
         "cwd": "${workspaceFolder}/functions"
       }

@@ -14,11 +14,20 @@
       "request": "launch",
       "name": "Launch Node Express via NPM",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "node:debug"],
-      "port": 9229
+      "runtimeArgs": [
+        "run-script",
+        "node:debug"
+      ],
     },
     {
       "name": "Attach to Functions",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "preLaunchTask": "func: host start"
+    },
+    {
+      "name": "Attach to Node Functions",
       "type": "node",
       "request": "attach",
       "port": 9229,
@@ -28,11 +37,17 @@
   "compounds": [
     {
       "name": "Debug Functions and Angular",
-      "configurations": ["Attach to Functions", "Launch Angular"]
+      "configurations": [
+        "Attach to Functions",
+        "Launch Angular"
+      ]
     },
     {
       "name": "Debug Express and Angular",
-      "configurations": ["Launch Node Express via NPM", "Launch Angular"]
+      "configurations": [
+        "Launch Node Express via NPM",
+        "Launch Angular"
+      ]
     }
   ]
 }

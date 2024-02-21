@@ -1,8 +1,7 @@
 import express from 'express';
+import { vacationRoutes } from './vacation.routes';
 
 const router = express.Router();
-
-import { vacationRoutes } from './vacation.routes';
 
 router.use('/', vacationRoutes);
 
