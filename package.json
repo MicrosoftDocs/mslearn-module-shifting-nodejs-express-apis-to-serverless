@@ -17,11 +17,11 @@
     "full:debug": "concurrently \"npm run node:debug\" \"npm run start\"",
 
     "start:azurite": "npx -y azurite --location ./.azurite/data --debug ./.azurite/logs",  
-    "node:build:serverless": "cd functions && npm run build",  
+    "node:build:serverless": "cd functions && npm install && npm run build",  
     "node:start:serverless": "cd functions && func start",
-    "client:serverless": "ng serve --proxy-config proxy.conf.serverless.json",
+    "client:start:serverless": "ng serve --proxy-config proxy.conf.serverless.json",
     "full:build:serverless": "npm run node:build:serverless && npm run build",
-    "full:start:serverless": "concurrently \"npm run start:azurite\" \"npm run node:start:serverless\" \"npm run client:serverless\""
+    "full:start:serverless": "concurrently \"npm run start:azurite\" \"npm run node:start:serverless\" \"npm run client:start:serverless\""
   },
   "private": true,
   "dependencies": {

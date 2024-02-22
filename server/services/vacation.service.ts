@@ -1,53 +1,71 @@
-const data = {
-  vacations: [
-    {
-      id: '10',
-      name: 'Florida beach getaway',
-      description: 'Soft beach sands, warm sunsets, calm waters',
-    },
-    {
-      id: '20',
-      name: 'Glacier excursions',
-      description: 'Vistas of the centuries old glaciers',
-    },
-    {
-      id: '30',
-      name: 'Iceland',
-      description:
-        'Explore the dramatic landscape with volcanoes, geysers, hot springs and lava fields',
-    },
-    {
-      id: '40',
-      name: 'Norway',
-      description: 'Visit breathtaking fjords and waterfalls',
-    },
-    {
-      id: '50',
-      name: 'Rocky mountain vacation',
-      description: 'Long and relaxing hikes through the mountains',
-    },
-  ],
+import vacationsData from '../data/vacations.json';
+import { Vacation } from '../models/vacation.model';
+
+// Function to read vacation data from the vacations.json file
+const readVacationsFromFile = (): Vacation[] => {
+  return vacationsData;
 };
 
-const addVacation = (vacation) => {
-  vacation.id = `vacation-${vacation.name}`;
-  data.vacations.push(vacation);
-  return vacation;
+const addVacation = (vacation: Vacation): Vacation | undefined=> {
+  try {
+    const vacations = readVacationsFromFile();
+    vacation.id = `vacation-${Date.now()}`;
+    vacations.push(vacation);
+
+    return vacation;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error adding vacation', err);
+
+    return undefined;
+  }
 };
 
-const updateVacation = (vacation) => {
-  const index = data.vacations.findIndex((v) => v.id === vacation.id);
-  data.vacations.splice(index, 1, vacation);
-  return vacation;
+const updateVacation = (updatedVacation: Vacation): Vacation | undefined => {
+
+  try {
+    const vacations = readVacationsFromFile();
+    const index = vacations.findIndex(v => v.id === updatedVacation.id);
+
+    if (index !== -1) {
+      vacations.splice(index, 1, updatedVacation);
+      return updatedVacation;
+    }
+
+    return undefined;
+  } catch (error) {
+    const err = error as Error;
+    console.log('Error updating vacation', err);
+
+    return undefined;
+  }
 };
 
-const deleteVacation = (id) => {
-  data.vacations = data.vacations.filter((v) => v.id !== id);
-  return true;
+const deleteVacation = (id: string): boolean => {
+  try {
+    let vacations = readVacationsFromFile();
+    const initialLength = vacations.length;
+    vacations = vacations.filter(v => v.id !== id);
+
+    return vacations.length !== initialLength - 1;
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.log('Error deleting vacation', err);
+  }
 };
 
-const getVacations = () => {
-  return data.vacations;
+const getVacations = (): Vacation[] => {
+  try {
+    return readVacationsFromFile();
+  } catch (error) {
+    console.error('Error getting vacations:', error);
+    return [];
+  }
 };
 
-export default { getVacations, addVacation, updateVacation, deleteVacation };
+export { 
+  addVacation, 
+  updateVacation, 
+  deleteVacation, 
+  getVacations,  
+};

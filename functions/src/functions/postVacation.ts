@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
 import * as vacationService from '../services/vacation.services';
-import { Vacation } from '../../models/vacation.models';
+import { Vacation } from '../models/vacation.models';
 
 export async function postVacation(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
     context.log(`HTTP function processed request for URL: "${request.url}"`);
