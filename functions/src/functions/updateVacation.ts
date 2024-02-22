@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
 import { vacationService } from '../../services';
-import { Vacation } from '../../models/vacation.models';
+import { Vacation } from '../../models/vacation.model';
 
 export async function updateVacation(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
   try {

@@ -1,6 +1,6 @@
 
 import vacationsData from '../data/vacations.json';
-import { Vacation } from '../models/vacation.models';
+import { Vacation } from '../models/vacation.model';
 
 // Function to read vacation data from the vacations.json file
 const readVacationsFromFile = (): Vacation[] => {

@@ -1,3 +1,3 @@
-import * as vacationService from './vacation.services';
+import * as vacationService from './vacation.service';
 
 export { vacationService };
