@@ -1,5 +1,5 @@
 import * as express from 'express';
-import vacationService  from '../services/vacation.service';
+import * as vacationService  from '../services/vacation.service';
 
 const router = express.Router();
 
